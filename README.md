@@ -6,3 +6,6 @@
 
 # dev dependencies
 `$ npm install -D postcss autoprefixer tailwindcss`
+
+# tailwindcss
+`$ npx tailwindcss init`
