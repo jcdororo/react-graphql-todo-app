@@ -8,7 +8,7 @@ export const GET_TODOS = gql`
       id
     }
   }
-`;
+`
 
 export const ADD_TODO = gql`
   mutation addTodo($text: String!, $checked: Boolean!) {
@@ -18,17 +18,17 @@ export const ADD_TODO = gql`
       id
     }
   }
-`;
+`
 
 export const UPDATE_TODO = gql`
-  mutateTodo($text: String, $checked;: Boolean, $id: ID!) {
-    updateTodo(text:$text, checked: $checked, id: $id) {
+  mutation updateTodo($text: String, $checked: Boolean, $id: ID!) {
+    updateTodo(text: $text, checked: $checked, id: $id) {
       text
       checked
       id
     }
   }
-`;
+`
 
 export const REMOVE_TODO = gql`
   mutation removeTodo($id: ID!) {
