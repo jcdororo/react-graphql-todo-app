@@ -1,6 +1,6 @@
 import './App.css'
 import { useMutation, useQuery } from '@apollo/client'
-import { ADD_TODO, GET_TODOS, REMOVE_TODO } from './apollo/todos'
+import { ADD_TODO, GET_TODOS, REMOVE_TODO, UPDATE_TODO } from './apollo/todos'
 import TodoItem from './components/TodoItem';
 import { AllTodosCache, IList } from './types';
 import { useState } from 'react';
@@ -33,6 +33,8 @@ function App() {
       })
     }
   });
+
+  const [updateTodo, { error: updateError }] = useMutation(UPDATE_TODO);
 
 
   const counter = (): string => {
@@ -85,6 +87,7 @@ function App() {
                 key={item.id}
                 item={item}
                 handleRemove={removeTodo}
+                handleUpdate={updateTodo}
               />
               )}
           </ul>
