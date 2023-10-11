@@ -4,9 +4,10 @@ import { FiEdit, FiMinusCircle } from 'react-icons/fi'
 
 interface TodoItemProps {
   item: IList;
+  handleRemove: (options: {variables: {id: number}}) => void
 }
 
-const TodoItem: FC<TodoItemProps> = ({item}) => {
+const TodoItem: FC<TodoItemProps> = ({item, handleRemove}) => {
   const [edit, setEdit] = useState(false);
   const [task, setTask] = useState(item.text);
 
@@ -24,7 +25,9 @@ const TodoItem: FC<TodoItemProps> = ({item}) => {
       </div>
       <div className='flex justify-between w-1/6'>
         <FiEdit className='hover:scale-105 hover:cursor-pointer' />
-        <FiMinusCircle className='hover:scale-105 hover:cursor-pointer' />
+        <FiMinusCircle 
+          onClick={() => handleRemove({variables: {id: item.id}})}
+          className='hover:scale-105 hover:cursor-pointer' />
       </div>
 
     </li>
